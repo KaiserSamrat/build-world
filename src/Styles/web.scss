@@ -1,0 +1,251 @@
+// page
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+p {
+  margin-bottom: 0;
+}
+h1 {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+h2 {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+h3 {
+  margin-bottom: 0;
+  /* font-size: 20px; */
+  font-weight: 700;
+}
+h4 {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+h5 {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+h6 {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+body {
+  /* font-family: "Raleway", sans-serif !important; */
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+}
+.btn-check:focus + .btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: unset !important;
+}
+.table > :not(:first-child) {
+  border-top: unset;
+}
+
+//pagination start
+.paginationContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  ul {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    li.prevNext {
+      background-color: transparent;
+      i {
+        font-size: 18px;
+      }
+    }
+    li {
+      padding: 4px 12px;
+      background-color: #eff2f7;
+      border-radius: 50%;
+      margin: 0 3px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      button {
+        padding: none;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+  .activePage {
+    background-color: #ff9a00;
+    color: #fff;
+  }
+}
+.pagination-rounded {
+  .page-link {
+    border-radius: 30px !important;
+    margin: 0 3px !important;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+    line-height: 32px;
+  }
+}
+.pagination {
+  .page-item {
+    &:first-child {
+      .page-link {
+        margin-right: 0; //rtl
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        // @include border-right-radius($border-radius); //rtl
+      }
+    }
+    &:last-child {
+      .page-link {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        // @include border-left-radius($border-radius); //rtl
+      }
+    }
+  }
+}
+@mixin btn-outline-default(
+  $color,
+  $borderColor,
+  $padding,
+  $hovColor,
+  $bxShadow
+) {
+  &:hover {
+    color: $hovColor;
+    background-color: $borderColor;
+    border-color: $borderColor;
+  }
+  &:focus {
+    color: $hovColor;
+    background-color: $borderColor;
+    border-color: $borderColor;
+    box-shadow: $bxShadow;
+  }
+  color: $color;
+  border-color: $borderColor;
+  padding: $padding;
+  border-radius: 10px !important;
+  font-size: 1rem;
+}
+.btn-outline-orange {
+  @include btn-outline-default(
+    #ff9a00,
+    #ff9a00,
+    10px 30px,
+    #000,
+    0 0 0 0.25rem rgb(217 164 6 / 50%)
+  );
+}
+
+@mixin btn-default($backColor, $color, $padding, $bxShadow) {
+  &:hover {
+    color: $color;
+    border-color: $backColor;
+    background: darken($backColor, 8%);
+    transition: all 0.3s ease;
+  }
+  &:focus {
+    color: $color;
+    border-color: $backColor;
+    background: darken($backColor, 8%);
+    transition: all 0.3s ease;
+    box-shadow: $bxShadow;
+  }
+  color: $color;
+  background-color: $backColor;
+  border-color: $backColor;
+  padding: $padding;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  font-size: 1rem;
+}
+.button-orange {
+  @include btn-default(
+    #ff9a00,
+    #ffffff,
+    10px 30px !important,
+    0 0 0 0.25rem rgb(217 164 6 / 50%)
+  );
+}
+.button-orange-padding {
+  @include btn-default(
+    #ff9a00,
+    #ffffff,
+    14px 30px !important,
+    0 0 0 0.25rem rgb(217 164 6 / 50%)
+  );
+}
+.button-orange-padding-small {
+  @include btn-default(
+    #ff9a00,
+    #ffffff,
+    5px 21px !important,
+    0 0 0 0.25rem rgb(217 164 6 / 50%)
+  );
+}
+
+.button-light {
+  @include btn-default(
+    #fff3e1,
+    #ff9a00,
+    15px 30px !important,
+    0 0 0 0.25rem rgb(231 220 187 / 50%)
+  );
+}
+//table
+.table > tbody {
+  vertical-align: unset !important;
+}
+
+@mixin search-box-header-top-wrap($radius) {
+  border-radius: $radius;
+  transition: 0.3s;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0px 15px;
+
+  border: 1px solid #eaeaea;
+  background: white;
+
+  input {
+    width: 550px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #888888;
+  }
+}
+.search_radius_shop {
+  @include search-box-header-top-wrap(10px);
+}
+.search_radius_bottom_header {
+  @include search-box-header-top-wrap(25px);
+}
+
+//badge
+@mixin default-badge($color, $background, $padding) {
+  color: $color;
+  background-color: $background;
+  padding: $padding;
+}
+.green-badge {
+  @include default-badge(#26b207, #dbf7d5 !important, 8px 14px);
+}
+
+//pagination end
+@import "./Custom/Pages/web/home.scss";
+@import "./Custom/Pages/web/header.scss";
+@import "./Custom/Pages/web/footer.scss";
+@import "./Custom/Pages/web/other.scss";

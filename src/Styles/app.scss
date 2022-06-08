@@ -1,0 +1,11 @@
+@import './_variables.scss';
+@import './_layout.scss';
+@import './global.scss';
+
+// component
+@import './Custom/Components/_profileCard.scss';
+@import './Custom/Components/switch.scss';
+
+// page
+@import './Custom/Pages/ProfileSettings.scss';
+@import './Custom/Pages/Questionpage.scss';

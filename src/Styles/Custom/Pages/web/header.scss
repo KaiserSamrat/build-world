@@ -1,0 +1,22 @@
+.top-header {
+  border-bottom: 1px solid #dee2e6;
+  background-color: white !important;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #000000;
+  padding-left: 30px !important;
+}
+.header-bottom {
+  padding-top: 67px;
+  padding-bottom: 15px;
+  box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+}
+
+@media (max-width: 640px) {
+  .custom-center {
+    text-align: center;
+  }
+  .justify_center {
+    justify-content: center !important;
+  }
+}

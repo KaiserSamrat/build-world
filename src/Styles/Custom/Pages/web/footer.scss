@@ -1,0 +1,40 @@
+.footer {
+  background: #1b3f73;
+  padding: 60px;
+  h6 {
+    color: #f2f2f2;
+    margin-bottom: 10px;
+  }
+  ul {
+    li {
+      a {
+        color: #bac4ce;
+        padding: 5px 0px !important;
+        &:hover {
+          //   font-weight: 500;
+          color: #f2f2f2;
+        }
+      }
+    }
+  }
+  .logo_wrapper {
+    img {
+      width: 45%;
+      margin-bottom: 13px;
+    }
+    p {
+      color: #bac4ce;
+    }
+    .icon_backg {
+      margin-top: 15px;
+      img {
+        width: 73%;
+      }
+    }
+  }
+}
+@media (max-width: 640px) {
+  .custom-d-flex {
+    display: unset !important;
+  }
+}

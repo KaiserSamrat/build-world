@@ -1,0 +1,42 @@
+@import './variables.scss';
+
+.dashboard_card1 {
+  background-color: $dashboard_card1;
+}
+
+.dashboard_card2 {
+  background-color: $dashboard_card2;
+}
+
+.dashboard_card3 {
+  background-color: $dashboard_card3;
+}
+.dashboard_card4 {
+  background-color: $dashboard_card4;
+}
+.dashboard_card5 {
+  background-color: $dashboard_card5;
+}
+
+.dashboard_card6 {
+  background-color: $dashboard_card6;
+}
+
+.pill {
+  color: #fff;
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 2px 7px;
+}
+
+.removeShadow {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.drTextareaDiv {
+  & > div {
+    height: 100%;
+  }
+}

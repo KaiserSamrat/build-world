@@ -1,0 +1,36 @@
+.profileCard {
+  border-radius: 50%;
+  border-left-color: transparent;
+  // margin: 0 auto;
+  padding: 3px;
+  .nonProfile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1.5px solid #26235c;
+    border-radius: 50%;
+    background-color: #e6f0fe;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0052cc;
+  }
+  .profile {
+    width: 100%;
+    height: 100%;
+    // border: 1.5px solid #26235c;
+    border-radius: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.profile-picture-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}

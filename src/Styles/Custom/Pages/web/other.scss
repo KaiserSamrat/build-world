@@ -1,0 +1,211 @@
+.shop_wrapper {
+  padding-top: 55px;
+  background: linear-gradient(
+    180deg,
+    rgba(238, 165, 208, 0.14) 0%,
+    rgba(128, 207, 240, 0.14) 100%
+  );
+  box-shadow: 0px 10px 30px rgba(166, 176, 207, 0.2);
+  .browse_category_wraper {
+    .img_area {
+      text-align: center;
+      padding: 70px 0px;
+      border-radius: 10px;
+    }
+  }
+  .explore_category_wraper {
+    padding-top: 55px;
+    .img_area {
+      text-align: center;
+      padding: 70px 0px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.form_inner {
+  .form_inner_background {
+    background: linear-gradient(
+      180deg,
+      rgba(238, 165, 208, 0.14) 0%,
+      rgba(128, 207, 240, 0.14) 100%
+    );
+    box-shadow: 0px 10px 30px rgb(166 176 207 / 20%);
+    border: none !important;
+    border-radius: 30px;
+  }
+
+  input {
+    line-height: 2.5;
+  }
+  .form-select {
+    line-height: 2.5;
+  }
+  .check_box {
+    border-radius: 50px;
+    border: 4px solid #ff9a00;
+    padding: 9px;
+    &:checked {
+      background-color: #ff9a00 !important;
+    }
+  }
+}
+
+.Sign_in_form {
+  padding-top: 55px;
+  background: linear-gradient(
+    180deg,
+    rgba(238, 165, 208, 0.14) 0%,
+    rgba(128, 207, 240, 0.14) 100%
+  );
+  box-shadow: 0px 10px 30px rgba(166, 176, 207, 0.2);
+}
+.vendor_wrapper {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  background: linear-gradient(
+    180deg,
+    rgba(238, 165, 208, 0.14) 0%,
+    rgba(128, 207, 240, 0.14) 100%
+  );
+  box-shadow: 0px 10px 30px rgba(166, 176, 207, 0.2);
+  .card {
+    box-shadow: 5px 10px 30px rgb(182 182 182 / 15%);
+    border-radius: 10px;
+    border: none;
+  }
+}
+.about_wrapper {
+  padding-top: 55px;
+  background: linear-gradient(
+    180deg,
+    rgba(238, 165, 208, 0.14) 0%,
+    rgba(128, 207, 240, 0.14) 100%
+  );
+  box-shadow: 0px 10px 30px rgba(166, 176, 207, 0.2);
+  i {
+    background: #ffffff;
+    padding: 13px;
+    border-radius: 50px;
+    font-size: 21px;
+  }
+  .value_bottom_margin {
+    margin-bottom: 100px;
+  }
+}
+.featured_product_wraper {
+  padding-top: 55px;
+  .slick-next:before {
+    /* content: "→"; */
+    content: "\ea50";
+    color: #1b3f73;
+    font-family: boxicons !important;
+    font-size: 24px;
+  }
+  .slick-prev:before {
+    /* content: "→"; */
+    content: "\ea4d";
+    color: #1b3f73;
+    font-family: boxicons !important;
+    font-size: 24px;
+  }
+  button.slick-arrow.slick-next {
+    width: 37px;
+    height: 37px;
+    background: #e8f3fd;
+    border-radius: 50%;
+    right: 15px;
+    top: -56px;
+  }
+  button.slick-arrow.slick-prev {
+    width: 37px;
+    height: 37px;
+    background: #e8f3fd;
+    border-radius: 50%;
+    right: 62px;
+    top: -56px;
+    left: unset;
+  }
+}
+.trackOrder_wrapper {
+  .product_wrapper {
+    padding: 20px;
+  }
+  .shipping_area {
+    padding: 0px 44px;
+    .inner_side_order {
+      padding: 15px;
+      border-radius: 50%;
+      background: #f8f8f8;
+    }
+    span {
+      color: #a0a0a0;
+    }
+    .inner_side_delivery {
+      padding: 15px;
+      border-radius: 50%;
+      background: #fffaf1;
+      border: 1px solid #ff9a00;
+    }
+    .inner_side_received {
+      padding: 15px;
+      border-radius: 50%;
+      background: #fffaf1;
+    }
+  }
+}
+.profile_wrapper {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  background: linear-gradient(
+    180deg,
+    rgba(238, 165, 208, 0.14) 0%,
+    rgba(128, 207, 240, 0.14) 100%
+  );
+  box-shadow: 0px 10px 30px rgba(166, 176, 207, 0.2);
+
+  .card {
+    border: unset !important;
+  }
+  .left-wrapper {
+    .card {
+      padding: 34px 0px 68px 0px;
+    }
+    .profile {
+      border-radius: 50%;
+      width: 116px;
+    }
+    ul {
+      margin-top: 52px;
+      li {
+        padding-bottom: 28px;
+      }
+    }
+  }
+
+  .right-wrapper {
+    .card {
+      padding: 34px 34px 0px 34px;
+    }
+  }
+  .purchase_history {
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-d-unset {
+    display: unset !important;
+  }
+  .mobile-position {
+    text-align: center;
+    margin-top: 25px;
+  }
+  .trackOrder_wrapper {
+    .mobile-size {
+      width: 7% !important;
+    }
+  }
+  .trackOrder_wrapper .shipping_area {
+    padding: 0px !important;
+  }
+}
