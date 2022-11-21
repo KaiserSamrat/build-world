@@ -4,7 +4,7 @@ import AllAbout from "../../assets/images/aboutUs/allAbout.png";
 import Started from "../../assets/images/aboutUs/started.svg";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
-
+import ProductD from "../../assets/images/dark-brown-brick-wall-creative-back-phonon-closeup.jpg";
 const AboutUs = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const AboutUs = () => {
               <p className="mb-1 custom_text_design">- Learn More</p>
               <h3 className="mb-5">All About Us</h3>
               <div className="pb-5">
-                <img alt="image" src={AllAbout} style={{ width: "100%" }} />
+                <img alt="image" src={ProductD} style={{ width: "100%" }} />
               </div>
             </Col>
             <Col className="col-md-10 offset-md-1">
@@ -37,13 +37,11 @@ const AboutUs = () => {
                   <ul className="">
                     <li style={{ color: "#FF9A00" }}>
                       <h6 style={{ color: "#FF9A00" }}>
-                        Natural Ingredients Only
+                        Solid materials Only
                       </h6>
                     </li>
                     <p className="mt-4 mb-5">
-                      10 years ago, when one of the co-founders came up with the
-                      idea of making skincare and beauty products using only
-                      natural ingredients, he did not even think twice.
+                    
                     </p>
                     <li style={{ color: "#FF9A00" }}>
                       <h6>Affordable Pricing Strategy</h6>

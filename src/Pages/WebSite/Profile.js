@@ -82,7 +82,7 @@ const Profile = () => {
                                     style={{ width: "53px" }}
                                     className="me-2"
                                   />
-                                  STROLLER Canvas with Dior Oblique Print
+                                HQ Cement
                                 </td>
                                 <td>৳750.00</td>
                                 <td>

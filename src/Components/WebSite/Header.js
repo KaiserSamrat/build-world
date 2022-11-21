@@ -34,18 +34,18 @@ const Header = () => {
                   className="bx bx-phone me-2 mt-1"
                   style={{ color: "#FF9A00", fontSize: "16px" }}
                 ></i>
-                <span className="me-5"> +880 1683149256</span>
+                <span className="me-5"> +880 1938392996</span>
               </div>
               <div className="d-flex">
                 <i
                   className="bx bx-envelope me-2 mt-1"
                   style={{ color: "#FF9A00", fontSize: "16px" }}
                 ></i>
-                <span> ongkur@gmail.com </span>
+                <span> tarek@gmail.com </span>
               </div>
             </Nav>
             <Nav>
-              {/* <Nav.Link to="/home">Home</Nav.Link> */}
+              
               <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
@@ -56,19 +56,23 @@ const Header = () => {
                 Requisition Form
               </Link>
 
-              <Nav.Link href="#action2">Blog</Nav.Link>
-              <Link className="nav-link" aria-current="page" to="/contact-us">
-                Contact
+              <Link className="nav-link" aria-current="page" to="/services">
+                Service
               </Link>
-              <Link className="nav-link" aria-current="page" to="/about-us">
-                About us
-              </Link>
+            
 
               <Link className="nav-link" aria-current="page" to="/vendor">
                 Vendor
               </Link>
               <Link className="nav-link" aria-current="page" to="/track-order">
                 Track Your Order
+              </Link>
+              <Nav.Link href="#action2">Blog</Nav.Link>
+              <Link className="nav-link" aria-current="page" to="/contact-us">
+                Contact
+              </Link>
+              <Link className="nav-link" aria-current="page" to="/about-us">
+                About us
               </Link>
             </Nav>
           </Navbar.Collapse>
@@ -78,7 +82,8 @@ const Header = () => {
       <div className="header-bottom custom-center">
         <Container>
           <div className="d-flex justify-content-between align-items-center custom-d-flex">
-            <img alt="logo" src={logo} style={{ width: "7%" }} />
+            {/* <img alt="logo" src={logo} style={{ width: "7%" }} /> */}
+            <h5>BuildX</h5>
             <form>
               <div className="search-box-header-top-wrap search_radius_bottom_header">
                 <i

@@ -13,7 +13,7 @@ const Footer = () => {
         <Container>
           <div className="d-flex justify-content-between custom-d-flex">
             <div className="logo_wrapper">
-              <img alt="logo" src={logo} />
+              <h5 className="text-white mb-5">BuildX</h5>
               <p>@ 2022 - All rights reserved</p>
               <div className="d-flex">
                 <Link to="#action2">

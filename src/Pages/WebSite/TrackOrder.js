@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import BlockToy from "../../assets/images/blockToy.svg";
 import backImg from "../../assets/images/trackOrder/backImg.svg";
 import orderConfirmed from "../../assets/images/trackOrder/orderConfirmed.svg";
-import product from "../../assets/images/trackOrder/product.svg";
+import product from "../../assets/images/M008C060_Cement_Bag_01.jpg";
 import Received from "../../assets/images/trackOrder/received.svg";
 import truck from "../../assets/images/trackOrder/truck.svg";
 import truckTick from "../../assets/images/trackOrder/truckTick.svg";
@@ -113,22 +113,22 @@ const TrackOrder = () => {
                     <Row className="">
                       <Col md="8">
                         <div className="d-flex justify-content-start">
-                          <img src={product} alt="image" />
+                          <img src={product} alt="image" className="h-50 w-50"/>
                           <div className="ms-4">
                             <h5 className="mt-4">
-                              STROLLER Canvas with Dior Oblique Print
+                             HQ cement
                             </h5>
-                            <h6 className="mt-4">Sold By: Kaiser Samrat</h6>
-                            <h3 className="mt-4">Cart Total: ৳2580</h3>
+                            <h6 className="mt-4">Sold By: Moin Tareq</h6>
+                            <h3 className="mt-4">Cart Total: ৳980</h3>
                           </div>
                         </div>
                       </Col>
                       <Col md="4" className="text-end">
-                        <h5 className="mt-3">Samsad Rashid</h5>
+                        <h5 className="mt-3"></h5>
                         <p className="mt-3">
-                          House 15, Road 24, banani,
+                          House 07, Road 6, Badda,
                           <br />
-                          Dhaka - 1212, Bangladesh
+                          Dhaka, Bangladesh
                         </p>
                         <p className="mt-3">
                           Phone:{" "}
@@ -206,7 +206,7 @@ const TrackOrder = () => {
                               <Card.Body>
                                 <div className="card_body_wrapper">
                                   <h5 className="mb-3">
-                                    Bubble Machine toy best quality
+                                    rmx Steel
                                   </h5>
                                   <h3>৳ 750.00</h3>
                                 </div>

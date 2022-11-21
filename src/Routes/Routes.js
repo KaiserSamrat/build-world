@@ -1,6 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import DemoFormik from "../Pages/Demo/DemoFormik";
 import Dashboard from "../Pages/Home/Index";
+import employeeList from "../Pages/HumanService/employeeList";
 import AboutUs from "../Pages/WebSite/AboutUs";
 import Contact from "../Pages/WebSite/Contact";
 import Home from "../Pages/WebSite/Home";
@@ -14,6 +15,7 @@ import Vendor from "../Pages/WebSite/VendorLogin";
 
 const openRoute = [
   { path: "/", component: Home },
+  { path: "/services", component: employeeList },
   { path: "/shop", component: Shop },
   { path: "/requisition", component: Requisition },
   { path: "/signin", component: SignIn },

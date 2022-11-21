@@ -1,9 +1,9 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import ProductA from "../../assets/images/homeAccessories/productA.png";
-import ProductB from "../../assets/images/homeAccessories/productB.png";
-import ProductC from "../../assets/images/homeAccessories/productC.png";
-import ProductD from "../../assets/images/homeAccessories/productD.png";
+import ProductA from "../../assets/images/construction-silhou.jpg";
+import ProductC from "../../assets/images/5138438.jpg";
+import ProductB from "../../assets/images/construction-workers-sunset.jpg";
+import ProductD from "../../assets/images/dark-brown-brick-wall-creative-back-phonon-closeup.jpg";
 
 const Combo = () => {
   return (
@@ -15,7 +15,7 @@ const Combo = () => {
               <img alt="image" src={ProductA} style={{ width: "100%" }} />
               <div className="inner-wraper">
                 <h2>
-                  Best Baby Accessories
+                  Best Building Materials
                   <br /> Combo Product
                 </h2>
                 <p className="mt-2">

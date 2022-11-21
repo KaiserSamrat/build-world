@@ -46,3 +46,8 @@ export async function del(url, config = {}) {
     .delete(url, { ...config })
     .then((response) => response.data);
 }
+export const getData = (url, authToken) =>
+  get(url, {
+    headers: { Authorization: `Bearer ${authToken}` },
+  });
+

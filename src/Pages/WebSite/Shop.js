@@ -17,7 +17,13 @@ import Vitamins from "../../assets/images/homeCat/vitamins.svg";
 import Combo from "../../Components/WebSite/Combo";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
-
+import brick from "../../assets/images/brick.png";
+import construction from "../../assets/images/construction.png";
+import floor from "../../assets/images/floor.png";
+import electric from "../../assets/images/electric.png";
+import light from "../../assets/images/light-bulb.png";
+import steel from "../../assets/images/iron-bar.png";
+import furniture from "../../assets/images/furnitures.png";
 function Shop() {
   return (
     <>
@@ -32,48 +38,62 @@ function Shop() {
                   <h3 className="mb-5">Browse by Category</h3>
 
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#D9ECFA" }}>
-                      <img alt="Image" src={NewBorn} />
+                    <div>
+                      <div
+                        className="img_area"
+                        style={{ background: "#D9ECFA" }}
+                      >
+                        <img
+                          alt="Image"
+                          style={{ width: "100px", height: "100px" }}
+                          src={steel}
+                        />
+                      </div>
+                      <h6 className="text-center mt-4 mb-4">Steel</h6>
                     </div>
-                    <h6 className="text-center mt-4 mb-4">New Born</h6>
                   </Col>
 
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#FBD2D6" }}>
-                      <img alt="Image" src={Todler} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Todler</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#FBD2D6" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={construction} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Cement</h6>
+                </div>
                   </Col>
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#D5F5E6" }}>
-                      <img alt="Image" src={Crawler} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Crawler</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#D5F5E6" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={light} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Light</h6>
+                </div>
                   </Col>
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#FBE3D2" }}>
-                      <img alt="Image" src={PlayShop} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Play Shop</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#FBE3D2" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={electric} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Electrics</h6>
+                </div>
                   </Col>
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#E8E4F2" }}>
-                      <img alt="Image" src={DayCare} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Day Care</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#E8E4F2" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={brick} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Tiles</h6>
+                </div>
                   </Col>
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#F8E6DA" }}>
-                      <img alt="Image" src={PreSchool} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Pre School</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#F8E6DA" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={floor} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Ceremics</h6>
+                </div>
                   </Col>
-                  <Col md={2}>
-                    <div className="img_area" style={{ background: "#F8E6DA" }}>
-                      <img alt="Image" src={Vitamins} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Vitamins</h6>
-                  </Col>
+               
                 </Row>
               </Container>
             </div>
@@ -84,47 +104,61 @@ function Shop() {
                   <h3 className="mb-5">Explore more Category</h3>
 
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#D9ECFA" }}>
-                      <img alt="Image" src={Art} />
+                  <div>
+                  <div className="img_area" style={{ background: "#FBE3D2" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={electric} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Electrics</h6>
+                </div>
+                  </Col>
+                  <Col md={2}>
+                  <div>
+                  <div className="img_area" style={{ background: "#E8E4F2" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={brick} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Tiles</h6>
+                </div>
+                  </Col>
+                  <Col md={2}>
+                  <div>
+                  <div className="img_area" style={{ background: "#F8E6DA" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={floor} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Ceremics</h6>
+                </div>
+                  </Col>
+                  
+                  <Col md={2}>
+                    <div>
+                      <div
+                        className="img_area"
+                        style={{ background: "#D9ECFA" }}
+                      >
+                        <img
+                          alt="Image"
+                          style={{ width: "100px", height: "100px" }}
+                          src={steel}
+                        />
+                      </div>
+                      <h6 className="text-center mt-4 mb-4">Steel</h6>
                     </div>
-                    <h6 className="text-center mt-4 mb-4">Arts</h6>
                   </Col>
 
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#FBD2D6" }}>
-                      <img alt="Image" src={PaperCrafts} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Crafts Set</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#FBD2D6" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={construction} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Cement</h6>
+                </div>
                   </Col>
                   <Col md={2}>
-                    <div className="img_area" style={{ background: "#D5F5E6" }}>
-                      <img alt="Image" src={Diy} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">DIY</h6>
-                  </Col>
-                  <Col md={2}>
-                    <div className="img_area" style={{ background: "#FBE3D2" }}>
-                      <img alt="Image" src={gift} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Gift Corner</h6>
-                  </Col>
-                  <Col md={2}>
-                    <div className="img_area" style={{ background: "#E8E4F2" }}>
-                      <img alt="Image" src={LearningToy} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Learning Toy</h6>
-                  </Col>
-                  <Col md={2}>
-                    <div className="img_area" style={{ background: "#F8E6DA" }}>
-                      <img alt="Image" src={LegoLand} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Lego Land</h6>
-                  </Col>
-                  <Col md={2}>
-                    <div className="img_area" style={{ background: "#F8E6DA" }}>
-                      <img alt="Image" src={Puzzle} />
-                    </div>
-                    <h6 className="text-center mt-4 mb-4">Puzzle</h6>
+                  <div>
+                  <div className="img_area" style={{ background: "#D5F5E6" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={light} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">Light</h6>
+                </div>
                   </Col>
                 </Row>
               </Container>
