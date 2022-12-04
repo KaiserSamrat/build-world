@@ -1,14 +1,20 @@
 /* eslint-disable react/react-in-jsx-scope */
+import CategoryList from "../Pages/Category/CategoryList";
+import CreateCategory from "../Pages/Category/CreateCategory";
 import DemoFormik from "../Pages/Demo/DemoFormik";
 import Dashboard from "../Pages/Home/Index";
 import employeeList from "../Pages/HumanService/employeeList";
+import CreateProduct from "../Pages/Product/CreateProduct";
+import ProductList from "../Pages/Product/ProductList";
+import Shop from "../Pages/Shop/Shop";
+import ShopCreate from "../Pages/Shop/ShopCreate";
 import AboutUs from "../Pages/WebSite/AboutUs";
 import Contact from "../Pages/WebSite/Contact";
 import Home from "../Pages/WebSite/Home";
 import Profile from "../Pages/WebSite/Profile";
 import Registration from "../Pages/WebSite/Registration";
 import Requisition from "../Pages/WebSite/Requisition";
-import Shop from "../Pages/WebSite/Shop";
+
 import SignIn from "../Pages/WebSite/SignIn";
 import TrackOrder from "../Pages/WebSite/TrackOrder";
 import Vendor from "../Pages/WebSite/VendorLogin";
@@ -17,6 +23,11 @@ const openRoute = [
   { path: "/", component: Home },
   { path: "/services", component: employeeList },
   { path: "/shop", component: Shop },
+  { path: "/product", component: ProductList },
+  { path: "/create-product", component: CreateProduct },
+  { path: "/create-shop", component: ShopCreate },
+  { path: "/category", component: CategoryList },
+  { path: "/category-add", component: CreateCategory },
   { path: "/requisition", component: Requisition },
   { path: "/signin", component: SignIn },
   { path: "/registration", component: Registration },

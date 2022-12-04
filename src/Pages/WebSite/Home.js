@@ -23,9 +23,69 @@ import PreSchool from "../../assets/images/homeCat/preSchool.svg";
 import Todler from "../../assets/images/homeCat/todler.svg";
 import Vitamins from "../../assets/images/homeCat/vitamins.svg";
 import PopularProduct from "../../assets/images/popular_product.svg";
+import cement from "../../assets/images/M008C060_Cement_Bag_01.jpg";
+import steelImage from "../../assets/images/1602.m00.i104.n059.P.c25.203383798 Seamless vector steel rebars, reinforcements set.jpg";
+import bulb from "../../assets/images/you-will-never-leave-me-dark-anymore.jpg";
+import headphone from "../../assets/images/close-up-shot-black-condenser-microphone-front-computer-sound-engineering-studio.jpg";
 import Combo from "../../Components/WebSite/Combo";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
+const productList = [
+  {
+      name:"BSRM", 
+      categories:"Steel",
+      price: "1000",
+      img: cement
+  },
+  {
+    name:"RSRM", 
+    categories:"Cement",
+    price: steelImage
+},
+{
+  name:"BOLAKA", 
+  categories:"Light",
+  price: "120",
+  img: bulb
+},
+{
+  name:"NASA", 
+  categories:"Electronics",
+  price: headphone
+},
+{
+  name:"DIAMOND", 
+  categories:"Tiles",
+  price: "1400"
+},
+{
+  name:"Shine", 
+  categories:"Ceramics",
+  price: "120"
+},
+{
+  name:"Kashmir", 
+  categories:"Fan",
+  price: "1290"
+},
+{
+  name:"Energy", 
+  categories:"Led lights",
+  price: "150"
+},
+{
+  name:"Energy", 
+  categories:"Swtichboard",
+  price: "120"
+},
+{
+  name:"Walton", 
+  categories:"Holder",
+  price: "120"
+},
+  
+  
+]
 
 const Home = () => {
   var settings = {
@@ -172,21 +232,24 @@ const Home = () => {
               <p className="mb-1 custom_text_design">- Our Products</p>
               <h3 className="mb-5">Explore our Products</h3>
 
-              {([1, 2, 3, 4, 5, 6, 7, 8] || []).map((data, key) => {
+              {(productList || []).map((data, key) => {
                 return (
                   <>
                     <Col md={3}>
                       <Card className="card_wrapper mb-4">
                         <div className="card_img">
-                          <Card.Img variant="top" alt="Image" src={demo} />
+                          <Card.Img variant="top" alt="Image" src={data?.img} />
                         </div>
 
                         <Card.Body>
                           <div className="card_body_wrapper">
                             <h5 className="mb-3">
-                              Rmx Steel
+                             {data?.name}
                             </h5>
-                            <h3>৳ {data*150}</h3>
+                            <h6 className="mb-3">
+                             {data?.categories}
+                            </h6>
+                            <h3>৳ {data?.price}</h3>
                           </div>
                         </Card.Body>
                       </Card>

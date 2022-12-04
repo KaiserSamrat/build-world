@@ -52,9 +52,12 @@ const Header = () => {
               <Link className="nav-link" aria-current="page" to="/shop">
                 Shop
               </Link>
-              <Link className="nav-link" aria-current="page" to="/requisition">
-                Requisition Form
+              <Link className="nav-link" aria-current="page" to="/product">
+                Product
               </Link>
+              {/* <Link className="nav-link" aria-current="page" to="/requisition">
+                Requisition Form
+              </Link> */}
 
               <Link className="nav-link" aria-current="page" to="/services">
                 Service
@@ -64,16 +67,14 @@ const Header = () => {
               <Link className="nav-link" aria-current="page" to="/vendor">
                 Vendor
               </Link>
+              <Link className="nav-link" aria-current="page" to="/category">
+                Category
+              </Link>
               <Link className="nav-link" aria-current="page" to="/track-order">
                 Track Your Order
               </Link>
               <Nav.Link href="#action2">Blog</Nav.Link>
-              <Link className="nav-link" aria-current="page" to="/contact-us">
-                Contact
-              </Link>
-              <Link className="nav-link" aria-current="page" to="/about-us">
-                About us
-              </Link>
+             
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,9 +1,11 @@
 import { all, fork } from "redux-saga/effects";
-import ProfileSaga from "./todos/saga";
-
-
+import RegisterSaga from "./register/saga";
+import authSaga from "./login/saga";
+import ProductSaga from "./Product/saga";
 export default function* rootSaga() {
   yield all([
-    fork(ProfileSaga),
+    fork(RegisterSaga),
+    fork(authSaga),
+    fork(ProductSaga),
   ]);
 }

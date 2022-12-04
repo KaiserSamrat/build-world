@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
+import { loginUser } from "../../Store/login/actions";
 const SignIn = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const handleSubmit = (e) =>{
+   
+    e.preventDefault()
+    let body = {
+      id: email,
+     
+      password: password,
+      
+    }
+    dispatch(loginUser(body, history))
+  }
   return (
     <>
       <Header />
@@ -16,13 +33,14 @@ const SignIn = () => {
               <div className="pb-5 ">
                 <Row>
                   <Col className="col-md-8 offset-md-2">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control
                           type="email"
                           placeholder="Type email"
                           name="email"
+                          onChange={(e)=>setEmail(e.target.value)}
                         />
                       </Form.Group>
 
@@ -32,6 +50,7 @@ const SignIn = () => {
                           type="password"
                           placeholder="Type password"
                           name="password"
+                          onChange={(e)=>setPassword(e.target.value)}
                         />
                       </Form.Group>
 
