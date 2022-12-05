@@ -3,6 +3,7 @@ import CategoryList from "../Pages/Category/CategoryList";
 import CreateCategory from "../Pages/Category/CreateCategory";
 import DemoFormik from "../Pages/Demo/DemoFormik";
 import Dashboard from "../Pages/Home/Index";
+import CreateEmployee from "../Pages/HumanService/CreateEmployee";
 import employeeList from "../Pages/HumanService/employeeList";
 import CreateProduct from "../Pages/Product/CreateProduct";
 import ProductList from "../Pages/Product/ProductList";
@@ -22,6 +23,7 @@ import Vendor from "../Pages/WebSite/VendorLogin";
 const openRoute = [
   { path: "/", component: Home },
   { path: "/services", component: employeeList },
+  { path: "/create-employee", component: CreateEmployee },
   { path: "/shop", component: Shop },
   { path: "/product", component: ProductList },
   { path: "/create-product", component: CreateProduct },

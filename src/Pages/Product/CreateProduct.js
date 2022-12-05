@@ -9,7 +9,7 @@ import { Label } from "reactstrap";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
 import { loginUser } from "../../Store/login/actions";
-import { createProduct, createShop, getCategoryList } from "../../Store/Product/actions";
+import { createProduct, createShop, getCategoryList, getShopList } from "../../Store/Product/actions";
 
 const CreateProduct = () => {
   const history = useHistory();
@@ -21,24 +21,33 @@ const CreateProduct = () => {
   const [address, setAddress] = useState("")
   const [city, setCity] = useState("")
   const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedShop, setSelectedShop] = useState('')
   const [file, setfile] = useState("")
  
-  const { authToken , loginId, categoryList,categoryListLoading} = useSelector((state) => ({
+  const { authToken , loginId, categoryList,categoryListLoading, shopList, shopListLoading, adding} = useSelector((state) => ({
     authToken: state.loginReducer.token,
     loginId: state.loginReducer.id,
     categoryList: state.ProductReducer.categoryList,
     categoryListLoading: state.ProductReducer.categoryListLoading,
+    shopList: state.ProductReducer.shopList,
+    shopListLoading: state.ProductReducer.shopListLoading,
+    adding:  state.ProductReducer.adding,
     // adding: state.coupon.adding,
   }));
+  console.log('shopList', shopList);
   const handleChangeCategory = value => {
     console.log('value', value);
     setSelectedCategory(value._id)
+  }
+  const handleShop = value => {
+    console.log('value', value);
+    setSelectedShop(value._id)
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     let formdata = new FormData()
     formdata.append("productName", name)
-    formdata.append("shop", shop)
+    formdata.append("shop", selectedShop)
     formdata.append("category", selectedCategory)
     formdata.append("price", price)
     formdata.append("image", file)
@@ -49,6 +58,9 @@ const CreateProduct = () => {
   useEffect(()=>{
     dispatch(getCategoryList(authToken))
 },[])
+useEffect(() => {
+  dispatch(getShopList(authToken));
+}, []);
   return (
     <>
       <Header />
@@ -73,7 +85,20 @@ const CreateProduct = () => {
                           onChange={(e) => setName(e.target.value)}
                         />
                       </Form.Group>
-                
+                     
+                      <Form.Group className="mb-3">
+                        <Form.Label> Shop</Form.Label>
+                        <Select
+                            name="shop"
+                            getOptionLabel={e => e.name}
+                            getOptionValue={e => e._id}
+                            options={shopList?.data?.shop}
+                            required
+                            errorMessage="Please select shop name"
+                            validate={{ required: { value: true } }}
+                            onChange={handleShop}
+                          />
+                      </Form.Group>
                    
                       <Form.Group className="mb-3">
                         <Form.Label> Category</Form.Label>
@@ -83,7 +108,7 @@ const CreateProduct = () => {
                             getOptionValue={e => e._id}
                             options={categoryList?.category}
                             required
-                            errorMessage="Please enter product name"
+                            errorMessage="Please select category name"
                             validate={{ required: { value: true } }}
                             onChange={handleChangeCategory}
                           />
@@ -119,8 +144,11 @@ const CreateProduct = () => {
                         type="submit"
                         className="btn btn-default mt-5"
                         style={{ width: "100%" }}
+                        disabled={adding}
                       >
-                        Submit
+                       {
+                        adding? "Submitting" : "Submit"
+                       } 
                       </Button>
                     </Form>
                    

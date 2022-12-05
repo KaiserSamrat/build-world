@@ -34,11 +34,11 @@ const loginReducer = (state = initialState, action) => {
       state = {
         ...state,
         username: action.payload.name,
-        token: action.payload.token,
-        email: action.payload.email,
+        token: action.payload.token,     
         id: action.payload.id,
+        email: action.payload.email,
         role: action.payload.role,
-        // loading: false,
+        loading: false,
         // error: '',
         // data: action.payload.data,
       };
@@ -48,12 +48,12 @@ const loginReducer = (state = initialState, action) => {
         ...state,
         username: '',
         token: '',
+        id:'',
         email: '',
-        userrole: '',
+       
+        role: '',
         loading: false,
-        isSocialLogin: false,
-        error: action.payload.data,
-        data: {},
+        
       };
       break;
     case LOGOUT_USER:

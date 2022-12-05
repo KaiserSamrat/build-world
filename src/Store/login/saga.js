@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import { postData } from '../../helpers/backend_helper';
@@ -42,6 +43,8 @@ function* onLoginUser({
     const response = yield call(postData, url, user);
     console.log('response', response);
     yield put(loginSuccess(response?.user?.name, response?.token,response?.user?._id, response?.user?.email, response?.user?.role ));
+    toast("You successfully login to your account")
+    history.push('/')
    
   } catch (error) {
     const message = error?.response?.data?.message || `Set time fail`;
@@ -50,7 +53,7 @@ function* onLoginUser({
 }
 function* logoutUser({ payload: { history } }) {
   try {
-    yield history.push('/');
+    yield history.push('/signin');
   } catch (error) {
     console.log('error data', error);
   }

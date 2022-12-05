@@ -14,10 +14,10 @@ export const loginUser = (user, history) => {
   };
 };
 
-export const loginSuccess = (username, token, id, email, userrole, data) => {
+export const loginSuccess = (username, token, id, email, role) => {
   return {
     type: LOGIN_SUCCESS,
-    payload: { username, token, id, email, userrole, data },
+    payload: { username, token, id, email, role },
   };
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
@@ -14,6 +14,12 @@ const Registration = () => {
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPasswordConfirm] = useState("")
   const [role, setRole] = useState("")
+  const { loading} = useSelector((state) => ({
+   
+    loading: state.RegisterReducer.loading,
+
+    // adding: state.coupon.adding,
+  }));
   const handleSubmit = (e) =>{
     e.preventDefault()
     let body = {
@@ -98,8 +104,10 @@ const Registration = () => {
                 
 
                       <div className="mt-5 d-flex justify-content-between align-items-center">
-                        <Button type="submit" className="btn btn-default me-5">
-                          Create Account
+                        <Button type="submit" className="btn btn-default me-5" disabled={loading}>
+                          {
+                            loading ? "Submitting" : "Create Account"
+                          }
                         </Button>
                         <Link
                           className="me-5"

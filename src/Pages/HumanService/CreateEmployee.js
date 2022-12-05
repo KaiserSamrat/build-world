@@ -1,52 +1,74 @@
+
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import Select from "react-select"
+import { Label } from "reactstrap";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
 import { loginUser } from "../../Store/login/actions";
-import { createShop } from "../../Store/Product/actions";
+import {  createService, createShop, getCategoryList, getShopList } from "../../Store/Product/actions";
 
-const ShopCreate = () => {
+const CreateEmployee = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+
   const [phone, setPhone] = useState("")
-  const [about, setAbout] = useState("")
-  const [address, setAddress] = useState("")
-  const [city, setCity] = useState("")
+  const [price, setPrice] = useState("")
+  const [profession, setProfession] = useState("")
+
+  const [selectedShop, setSelectedShop] = useState('')
   const [file, setfile] = useState("")
  
-  const { authToken , loginId, adding} = useSelector((state) => ({
+  const { authToken , loginId, categoryList,categoryListLoading, shopList, adding} = useSelector((state) => ({
     authToken: state.loginReducer.token,
-    loginId: state.loginReducer.id,
     adding: state.ProductReducer.adding,
+    loginId: state.loginReducer.id,
+    categoryList: state.ProductReducer.categoryList,
+    categoryListLoading: state.ProductReducer.categoryListLoading,
+    shopList: state.ProductReducer.shopList,
+    shopListLoading: state.ProductReducer.shopListLoading,
     // adding: state.coupon.adding,
   }));
+  console.log('shopList', shopList);
 
+  const handleShop = value => {
+    console.log('value', value);
+    setSelectedShop(value._id)
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     let formdata = new FormData()
-    formdata.append("ownerId", loginId)
-    formdata.append("name", name)
-    formdata.append("email", email)
-    formdata.append("phoneNumber", phone)
-    formdata.append("aboutShop", about)
-   
-    formdata.append("address", address)
-    formdata.append("city", city)
+    formdata.append("serviceName", name)
+    formdata.append("shop", selectedShop)
+    formdata.append("mobileNumber", phone)
+    formdata.append("profession", profession)
+    formdata.append("price", price)
     formdata.append("image", file)
-  
-    dispatch(createShop(formdata, history, authToken));
+
+   
+    dispatch(createService(formdata, history, authToken));
   };
+  
+  useEffect(()=>{
+    dispatch(getCategoryList(authToken))
+},[])
+useEffect(() => {
+  dispatch(getShopList(authToken));
+}, []);
+
   return (
     <>
       <Header />
       <div className="Sign_in_form">
+ 
+ 
         <Container>
-          <p className="mb-1 custom_text_design">- Shop</p>
-          <h3 className="mb-5">Create Shop</h3>
+          <p className="mb-1 custom_text_design">- Employee</p>
+          <h3 className="mb-5">Create Employee</h3>
           <Row>
             <Col className="col-md-8 offset-md-2  mb-5 form_inner">
               <div className="pb-5 ">
@@ -57,57 +79,56 @@ const ShopCreate = () => {
                         <Form.Label> Name</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Type Shop Name"
-                          name="category"
+                          placeholder="Type user Name"
+                          name="productName"
                           onChange={(e) => setName(e.target.value)}
                         />
                       </Form.Group>
+                     
                       <Form.Group className="mb-3">
-                        <Form.Label> Email</Form.Label>
+                        <Form.Label> Shop</Form.Label>
+                        <Select
+                            name="shop"
+                            getOptionLabel={e => e.name}
+                            getOptionValue={e => e._id}
+                            options={shopList?.data?.shop}
+                            required
+                            errorMessage="Please select shop name"
+                            validate={{ required: { value: true } }}
+                            onChange={handleShop}
+                          />
+                      </Form.Group>
+                      <Form.Group className="mb-3">
+                        <Form.Label>Profession</Form.Label>
                         <Form.Control
-                          type="email"
-                          placeholder="Type Email"
-                          name="category"
-                          onChange={(e) => setEmail(e.target.value)}
+                          type="text"
+                          placeholder="Type Profession"
+                          name="profession"
+                          onChange={(e) => setProfession(e.target.value)}
+                        />
+                      </Form.Group>
+                  
+                   
+                  
+                      <Form.Group className="mb-3">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control
+                          type="number"
+                          placeholder="Type Price"
+                          name="price"
+                          onChange={(e) => setPrice(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3">
-                        <Form.Label> Phone Number</Form.Label>
+                        <Form.Label>Phone Number</Form.Label>
                         <Form.Control
                           type="number"
-                          placeholder="Type Phone number"
-                          name="category"
+                          placeholder="Type Price"
+                          name="price"
                           onChange={(e) => setPhone(e.target.value)}
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Label> About</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Type About"
-                          name="category"
-                          onChange={(e) => setAbout(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Label> Address</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Type Address"
-                          name="category"
-                          onChange={(e) => setAddress(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Label> City</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Type City"
-                          name="category"
-                          onChange={(e) => setCity(e.target.value)}
-                        />
-                      </Form.Group>
-                         
+                  
                       <Form.Group className="mb-3">
                         <Form.Label>Photo</Form.Label>
                         <Form.Control
@@ -120,7 +141,8 @@ const ShopCreate = () => {
                         />
                       </Form.Group>
                 
-
+              
+              
 
                      
                   
@@ -130,7 +152,7 @@ const ShopCreate = () => {
                         style={{ width: "100%" }}
                         disabled={adding}
                       >
-                       {
+                        {
                             adding ? "Submitting" : "Submit"
                         }
                       </Button>
@@ -149,4 +171,4 @@ const ShopCreate = () => {
   );
 };
 
-export default ShopCreate;
+export default CreateEmployee;

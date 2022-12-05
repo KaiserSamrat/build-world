@@ -30,6 +30,10 @@ import headphone from "../../assets/images/close-up-shot-black-condenser-microph
 import Combo from "../../Components/WebSite/Combo";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProduct } from "../../Store/Product/actions";
 const productList = [
   {
       name:"BSRM", 
@@ -88,6 +92,14 @@ const productList = [
 ]
 
 const Home = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const { authToken, productList, productListLoading } = useSelector((state) => ({
+      authToken: state.loginReducer.token,
+      productList: state.ProductReducer.productList,
+      productListLoading: state.ProductReducer.productListLoading,
+      // adding: state.coupon.adding,
+    }));
   var settings = {
     dots: false,
     infinite: true,
@@ -140,7 +152,9 @@ const Home = () => {
       },
     ],
   };
-
+  useEffect(()=>{
+    dispatch(getProduct(authToken))
+},[])
   return (
     <>
       <Header />
@@ -232,22 +246,22 @@ const Home = () => {
               <p className="mb-1 custom_text_design">- Our Products</p>
               <h3 className="mb-5">Explore our Products</h3>
 
-              {(productList || []).map((data, key) => {
+              {(productList?.data || []).map((data, key) => {
                 return (
                   <>
                     <Col md={3}>
                       <Card className="card_wrapper mb-4">
                         <div className="card_img">
-                          <Card.Img variant="top" alt="Image" src={data?.img} />
+                          <Card.Img variant="top" alt="Image" src={data?.image}  style={{height:"300px"}}/>
                         </div>
 
                         <Card.Body>
                           <div className="card_body_wrapper">
                             <h5 className="mb-3">
-                             {data?.name}
+                             {data?.productName}
                             </h5>
                             <h6 className="mb-3">
-                             {data?.categories}
+                             {data?.category?.categoryName}
                             </h6>
                             <h3>৳ {data?.price}</h3>
                           </div>
@@ -292,21 +306,21 @@ const Home = () => {
           <Row>
             <p className="mb-1 custom_text_design"> - Explore</p>
             <h3 className="mb-5">Most Popular Products</h3>
-            {([1, 2, 3, 4] || []).map((data, key) => {
+            {(productList?.data  || []).map((data, key) => {
               return (
                 <>
                   <Col md={3}>
                     <Card className="card_wrapper">
                       <div className="card_img">
-                        <Card.Img variant="top" alt="Image" src={demo} />
+                        <Card.Img variant="top" alt="Image" src={data?.image} style={{height:"300px"}}/>
                       </div>
 
                       <Card.Body>
                         <div className="card_body_wrapper">
                           <h5 className="mb-3">
-                            RSRM
+                          {data?.productName}
                           </h5>
-                          <h3>৳ {data*360}</h3>
+                          <h3>৳ {data?.price}</h3>
                         </div>
                       </Card.Body>
                     </Card>

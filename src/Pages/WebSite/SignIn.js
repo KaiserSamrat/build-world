@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
@@ -10,6 +10,12 @@ const SignIn = () => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { loading} = useSelector((state) => ({
+   
+    loading: state.loginReducer.loading,
+
+    // adding: state.coupon.adding,
+  }));
   const handleSubmit = (e) =>{
    
     e.preventDefault()
@@ -21,6 +27,7 @@ const SignIn = () => {
     }
     dispatch(loginUser(body, history))
   }
+  console.log(loading);
   return (
     <>
       <Header />
@@ -67,8 +74,12 @@ const SignIn = () => {
                         type="submit"
                         className="btn btn-default mt-5"
                         style={{ width: "100%" }}
+                        disabled={loading}
                       >
-                        Login
+                        {
+                          loading ? "Submitting" :"Login"
+                        }
+                        
                       </Button>
                     </Form>
                     <Row>

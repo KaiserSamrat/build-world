@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import {
   Dropdown,
   DropdownItem,
@@ -9,10 +10,23 @@ import {
 } from "reactstrap";
 import images from "../../assets/images/images.png";
 import logo from "../../assets/images/logo.svg";
+import { logoutUser } from "../../Store/login/actions";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const dispatch = useDispatch()
+  const history = useHistory()
   const [testProfile, setTestProfile] = useState(true);
+  const { token} = useSelector((state) => ({
+   
+    token: state.loginReducer.token,
+
+    // adding: state.coupon.adding,
+  }));
+  console.log('token', token);
+  const handleLogout= ()=>{
+    dispatch(logoutUser(history))
+  }
   return (
     <React.Fragment>
       <Navbar
@@ -115,7 +129,7 @@ const Header = () => {
                 ></i>
               </div>
             </div>
-            {testProfile ? (
+            {token ==="" ? (
               <div>
                 <Link to={"/signin"}>
                   {" "}
@@ -126,27 +140,12 @@ const Header = () => {
               </div>
             ) : (
               <div>
-                <Dropdown
-                  isOpen={menu}
-                  toggle={() => setMenu(!menu)}
-                  className="d-inline-block"
-                >
-                  <DropdownToggle className="btn" tag="button">
-                    <img
-                      className="header-profile-user me-3"
-                      src={images}
-                      alt="Header Avatar"
-                      style={{ width: "40px", borderRadius: "10px" }}
-                    />
-                    Kaiser
-                    <i class="bx bx-chevron-down"></i>
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem header>Profile</DropdownItem>
-                    {/* <DropdownItem divider />
-                  <DropdownItem>Another Action</DropdownItem> */}
-                  </DropdownMenu>
-                </Dropdown>
+                
+                  {" "}
+                  <button className="btn btn-outline-default btn-outline-orange" onClick={()=>handleLogout()}>
+                    Sign out{" "}
+                  </button>
+               
               </div>
             )}
           </div>

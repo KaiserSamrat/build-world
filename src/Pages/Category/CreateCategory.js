@@ -10,9 +10,10 @@ const CreateCategory = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [category, setCategory] = useState("");
-  const { authToken } = useSelector((state) => ({
+  const { authToken, adding } = useSelector((state) => ({
     authToken: state.loginReducer.token,
-    // adding: state.coupon.adding,
+    adding:  state.ProductReducer.adding,
+    
   }));
 
   const handleSubmit = (e) => {
@@ -45,59 +46,20 @@ const CreateCategory = () => {
                         />
                       </Form.Group>
 
-                      <div className="mt-5 form-check">
-                        <input
-                          className="form-check-input check_box"
-                          type="checkbox"
-                        />
-                        <label className="form-check-label ms-2 mt-1">
-                          Remember me
-                        </label>
-                      </div>
+                
                       <Button
                         type="submit"
                         className="btn btn-default mt-5"
                         style={{ width: "100%" }}
+                        disabled={adding}
                       >
-                        Login
+                        {
+                          adding ? "Submitting" : "Create"
+                        }
+                        
                       </Button>
                     </Form>
-                    <Row>
-                      <Col className="col-md-10 offset-md-1">
-                        <div className="d-flex justify-content-between align-items-center mt-5">
-                          <div>
-                            <p>
-                              {" "}
-                              <Link
-                                style={{
-                                  color: "#000000",
-                                  fontSize: "20px",
-                                  textDecoration: "none",
-                                  fontWeight: "bold",
-                                }}
-                                to={"/registration"}
-                              >
-                                Create Account
-                              </Link>
-                            </p>
-                          </div>
-                          <div>
-                            <p>
-                              {" "}
-                              <Link
-                                style={{
-                                  color: "#000000",
-                                  fontSize: "20px",
-                                  fontWeight: "300",
-                                }}
-                              >
-                                Forgot Password?{" "}
-                              </Link>
-                            </p>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
+                  
                   </Col>
                 </Row>
               </div>

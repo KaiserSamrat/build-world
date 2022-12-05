@@ -13,10 +13,11 @@ import construction from "../../assets/images/construction.png";
 function CategoryList() {
     const history = useHistory()
     const dispatch = useDispatch()
-    const { authToken, categoryList, categoryListLoading } = useSelector((state) => ({
+    const { authToken, categoryList, categoryListLoading, role } = useSelector((state) => ({
         authToken: state.loginReducer.token,
         categoryList: state.ProductReducer.categoryList,
         categoryListLoading: state.ProductReducer.categoryListLoading,
+        role: state.loginReducer.role,
         // adding: state.coupon.adding,
       }));
       console.log('categoryList', categoryList, categoryListLoading);
@@ -34,11 +35,15 @@ function CategoryList() {
                 <Row>
                   <p className="mb-1 custom_text_design">- The Categories</p>
                   <h3 className="mb-5">Browse by Category</h3>
-                  <div className="text-end">
+                  {
+                    role === "SELLER" ? <div className="text-end">
                     <Button className="btn btn-waring " onClick={()=>{
                         history.push('/category-add')
                     }}>Create category</Button>
-                  </div>
+                  </div> :
+                  <span></span>
+                  }
+                  
                   {categoryListLoading ? (
             <div className="d-flex justify-content-center">
               <Loader />
