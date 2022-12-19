@@ -5,12 +5,15 @@ import { toaster } from "../../helpers/custom/Toast";
 import {
   addPackageOrderFail,
   addPackageOrderSuccess,
+  getShopOrderFail,
+  getShopOrderSuccess,
   getUserOrderFail,
   getUserOrderSuccess,
 } from "./actions";
 //from pacakge type
 import {
   ADD_PACKAGE_ORDER,
+  GET_SHOP_ORDER,
   GET_USER_ORDER
 } from "./actionTypes";
 
@@ -52,10 +55,22 @@ function* onGetUserOrder({ payload: { authtoken, id } }) {
     toaster("error", message);
   }
 }
+function* onGetShopOrder({ payload: { authtoken, id } }) {
+  try {
+    const url = `order-router?shopId=${id}&buyerId`;
+    const response = yield call(getData, url, authtoken);
+    yield put(getShopOrderSuccess(response));
+  } catch (error) {
+    const message = error.response?.data?.message || "get category failed";
+    yield put(getShopOrderFail(message));
+    toaster("error", message);
+  }
+}
 
 function* OrderSaga() {
   yield takeEvery(ADD_PACKAGE_ORDER, AddPackageOrder);
   yield takeEvery(GET_USER_ORDER, onGetUserOrder);
+  yield takeEvery(GET_SHOP_ORDER, onGetShopOrder);
 
 }
 

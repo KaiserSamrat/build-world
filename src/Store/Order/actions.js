@@ -4,6 +4,12 @@ import {
   ADD_PACKAGE_ORDER_FAIL,
   ADD_PACKAGE_ORDER_SUCCESS,
 
+  GET_SHOP_ORDER,
+
+  GET_SHOP_ORDER_FAIL,
+
+  GET_SHOP_ORDER_SUCCESS,
+
   GET_USER_ORDER,
   GET_USER_ORDER_FAIL,
   GET_USER_ORDER_SUCCESS,
@@ -37,6 +43,20 @@ export const getUserOrderSuccess = (data, authtoken) => ({
 
 export const getUserOrderFail = (error) => ({
   type: GET_USER_ORDER_FAIL,
+  payload: error,
+});
+export const getShopOrder = (authtoken, id) => ({
+  type: GET_SHOP_ORDER,
+  payload: { authtoken, id },
+});
+
+export const getShopOrderSuccess = (data, authtoken) => ({
+  type: GET_SHOP_ORDER_SUCCESS,
+  payload: { data, authtoken },
+});
+
+export const getShopOrderFail = (error) => ({
+  type: GET_SHOP_ORDER_FAIL,
   payload: error,
 });
 

@@ -12,6 +12,7 @@ import ProductList from "../Pages/Product/ProductList";
 import SuccessfullyPurchase from "../Pages/Purchase/SuccessfullyPurchase";
 import Shop from "../Pages/Shop/Shop";
 import ShopCreate from "../Pages/Shop/ShopCreate";
+import ShopOrder from "../Pages/Shop/ShopOrder";
 import ShopProduct from "../Pages/Shop/ShopProduct";
 import AboutUs from "../Pages/WebSite/AboutUs";
 import Contact from "../Pages/WebSite/Contact";
@@ -46,6 +47,7 @@ const openRoute = [
   { path: "/purchase", component: SuccessfullyPurchase },
   { path: "/userOrderHistory", component: UserOrder },
   { path: "/shop/:id", component: ShopProduct },
+  { path: "/shopOrder/:id", component: ShopOrder },
   // { path: '/forgot-password', component: ForgetPasswordPage },
 ];
 

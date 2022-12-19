@@ -26,61 +26,43 @@ function Shop() {
   return (
     <>
       <Header />
-      <div className="CategoryList_wrapper">
-        <Container>
-          <Row>
-            <div className="browse_category_wraper">
-              <Container>
-                <Row>
-                  <p className="mb-1 custom_text_design">- The Shop</p>
-                  <h3 className="mb-5">Browse by Shop</h3>
-                  {
-                  role === "SELLER" ?<div className="text-end">
-                  <Button
-                    className="btn btn-waring mb-3"
-                    onClick={() => {
-                      history.push("/create-shop");
-                    }}
-                  >
-                    Create Shop
-                  </Button>
-                </div>: <span></span>
-                  }
-                  
-                  {shopListLoading ? (
-                    <div className="d-flex justify-content-center">
-                      <Loader />
+    
+      <section class="container mt-5 mb-5">
+        <h1>দোকান তালিকা:</h1>
+
+        <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+          
+        {(shopList?.data?.shop || []).map((data, key) => {
+                return (
+                  <>
+            <div class="col single-shoe">
+                <div class="card h-80 border-0 bg-white shadow">
+                    <div class="shoe-image bg-light rounded m-3">
+                        <img src={data?.image} class="card-img-top " alt="..."/>
+
                     </div>
-                  ) : shopList?.data?.shop?.length > 0 ? (
-                    shopList?.data?.shop?.map((data, idx) => (
-                      <Col md={3}>
-                        <Card style={{ width: "18rem" }}>
-                          <Card.Img variant="top" src={data?.image} style={{height:"200px"}}/>
-                          <Card.Body>
-                            <Card.Title className="mb-4 text-center">{data?.name}</Card.Title>
-                            <Card.Text className="mt-2 mb-3">
-                              <span className="fw-bold">Categories: </span> {data?.aboutShop}
-                            </Card.Text>
-                            <Card.Text className="mt-2 mb-3">
-                              <span className="fw-bold">Address: </span> {data?.address}
-                            </Card.Text>
-                            <Button variant="primary">View Shop</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                    ))
-                  ) : (
-                    <div className="text-center">
-                      <h5>No shop Available</h5>
+                    <div class="card-body">
+                        <h5 class="card-title"> {data?.name}</h5>
+                        <p class="card-text"> {data?.aboutShop}</p>
+                        <div class="price-info d-flex align-items-center mt-3">
+                          
+                            <button class="btn btn-primary ms-auto" onClick={()=>
+                            history.push(`/shop/${data?._id}`)}>পণ্য দেখুন</button>
+                            {
+                              role === "SELLER" ? <button class="btn btn-primary ms-auto " onClick={()=>
+                                history.push(`/shopOrder/${data?._id}`)}>অর্ডার দেখুন</button>: ""
+                            }
+                            
+                        </div>
                     </div>
-                  )}
-                </Row>
-              </Container>
+                </div>
             </div>
-            <Combo />
-          </Row>
-        </Container>
-      </div>
+            </>
+                );
+              })}
+
+        </div>
+    </section>
 
       <Footer />
     </>

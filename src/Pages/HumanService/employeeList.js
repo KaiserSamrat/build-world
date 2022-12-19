@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import employeeImage from "../../assets/images/2852242.jpg";
+import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
 import { getProduct, getService } from "../../Store/Product/actions";
 const personList = [
@@ -146,7 +147,7 @@ const EmployeeList = () => {
                             <h6 className="mb-3">৳ {data?.price} per hour</h6>
                             <p className="mb-3">৳ {data?.mobileNumber}</p>
                             <Button className="btn btn-dark text-center">
-                              Book Now
+                              Call Now
                             </Button>
                           </div>
                         </Card.Body>
@@ -155,13 +156,10 @@ const EmployeeList = () => {
                   </>
                 );
               })}
-              <div className="mt-5 text-center">
-                <button className="btn btn-default button-orange">
-                  Show More
-                </button>
-              </div>
+            
             </Row>
           </Container>
+          <Footer/>
         </div>
       </div>
     </>

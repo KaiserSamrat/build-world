@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "../../Components/WebSite/Header";
-import { getUserOrder } from "../../Store/Order/actions";
+import { getShopOrder, getUserOrder } from "../../Store/Order/actions";
 
-const UserOrder = () => {
+const ShopOrder = () => {
   const dispatch = useDispatch();
-    const { authToken, loginId, productListLoading, role,  userOrder} = useSelector(
+  const {id} = useParams()
+    const { authToken, loginId, productListLoading, role,  userOrder, shopOrder} = useSelector(
         (state) => ({
           authToken: state.loginReducer.token,
           role: state.loginReducer.role,
@@ -14,14 +16,19 @@ const UserOrder = () => {
           productListLoading: state.ProductReducer.productListLoading,
           cart: state.CardReducer.cart,
           loginId: state.loginReducer.id,
-          userOrder: state.OrderReducer.userOrder,
+          shopOrder: state.OrderReducer.shopOrder,
           // adding: state.coupon.adding,
         })
       );
+      console.log('shopOrder', shopOrder);
       useEffect(() => {
-        dispatch(getUserOrder(authToken, loginId));
+        console.log('kkk', id);
+        if(id){
+            dispatch(getShopOrder(authToken, id));
+        }
+        
       }, []);
-      console.log('userOrder', userOrder);
+     
   return (
     <>
     <Header/>
@@ -40,7 +47,7 @@ const UserOrder = () => {
           </tr>
         </thead>
         <tbody>
-        {(userOrder?.data?.data || []).map((data, key) => {
+        {(shopOrder?.data?.data || []).map((data, key) => {
                 return (
                   <>
           <tr>
@@ -62,4 +69,4 @@ const UserOrder = () => {
   );
 };
 
-export default UserOrder;
+export default ShopOrder;

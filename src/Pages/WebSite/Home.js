@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row, ModalHeader } from "react-bootstrap";
+import { Card, Col, Container, Row, ModalHeader, Button, Carousel } from "react-bootstrap";
 import Slider from "react-slick";
 import {  Modal } from "reactstrap";
 import BabyShop from "../../assets/images/babyShop.svg";
@@ -9,20 +9,19 @@ import floor from "../../assets/images/fast-food.png";
 import electric from "../../assets/images/electric.png";
 import light from "../../assets/images/medicine.png";
 import steel from "../../assets/images/grocery.png";
-import furniture from "../../assets/images/furnitures.png";
 
+import sewing from "../../assets/images/sewing.png";
+import laundry from "../../assets/images/laundry-machine.png";
+import electrician from "../../assets/images/electrician.png";
+import cleaner from "../../assets/images/cleaning.png";
 import shopping from "../../assets/images/shopping.png";
-import cement from "../../assets/images/M008C060_Cement_Bag_01.jpg";
-import steelImage from "../../assets/images/1602.m00.i104.n059.P.c25.203383798 Seamless vector steel rebars, reinforcements set.jpg";
-import bulb from "../../assets/images/you-will-never-leave-me-dark-anymore.jpg";
-import headphone from "../../assets/images/close-up-shot-black-condenser-microphone-front-computer-sound-engineering-studio.jpg";
-import Combo from "../../Components/WebSite/Combo";
+import maid from "../../assets/images/maid.png";
 import Footer from "../../Components/WebSite/Footer";
 import Header from "../../Components/WebSite/Header";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getProduct, getShopList } from "../../Store/Product/actions";
+import { getProduct, getService, getShopList } from "../../Store/Product/actions";
 import './home.css'
 import { addCart } from "../../Store/cart/actions";
 import './student-package.scss'
@@ -35,11 +34,12 @@ const Home = () => {
   const [modalCardTitle, setModalCardTitle] = useState("");
   const [modalCardImage, setModalCardImage] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
-  const { authToken, productList, productListLoading, shopList } = useSelector((state) => ({
+  const { authToken, productList, employeeList, shopList } = useSelector((state) => ({
       authToken: state.loginReducer.token,
       productList: state.ProductReducer.productList,
       shopList: state.ProductReducer.shopList,
       productListLoading: state.ProductReducer.productListLoading,
+      employeeList: state.ProductReducer.employeeList,
       // adding: state.coupon.adding,
     }));
   var settings = {
@@ -108,6 +108,9 @@ const handleStore = (data) => {
 
   dispatch(addCart(data));
 };
+useEffect(() => {
+  dispatch(getService(authToken));
+}, []);
   return (
     <>
       <Header />
@@ -115,14 +118,39 @@ const handleStore = (data) => {
       <div className="baby_shop_wraper">
         <Container>
           <Row>
-            <Col md={12} className="align-self-center">
+            {/* <Col md={12} className="align-self-center">
    
                 <img src={shopping} class="w-100" alt="" style={{height:"450px"}}/>
 
        
  
-            </Col>
+            </Col> */}
+           <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.pngitem.com/pimgs/m/9-98563_ecommerce-website-development-ecommerce-website-banner-design-hd.png"
+          alt="First slide"
+          style={{height:"450px"}}
+        />
+        <Carousel.Caption>
           
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.digitalsochmedia.com/wp-content/uploads/2020/07/ecomm-web-designing-1.jpg"
+          alt="Second slide"
+          style={{height:"450px"}}
+        />
+
+        <Carousel.Caption>
+        
+        </Carousel.Caption>
+      </Carousel.Item>
+    
+    </Carousel>
           </Row>
         </Container>
         <section class="container mt-5">
@@ -243,6 +271,93 @@ const handleStore = (data) => {
 
         </div>
     </section>
+
+    <div className="category_wraper">
+          <Container>
+            <Row>
+              <p className="mb-1 custom_text_design">- সেবাসমূহ</p>
+              <h3 className="mb-5">সেবাসমূহ</h3>
+              <Slider {...settings}>
+                <div>
+                  <div className="img_area" style={{ background: "#D9ECFA"}}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={sewing} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">দর্জি</h6>
+                </div>
+
+                <div>
+                  <div className="img_area" style={{ background: "#FBD2D6" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={laundry} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">লন্ড্রি </h6>
+                </div>
+                <div>
+                  <div className="img_area" style={{ background: "#D5F5E6" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={electrician} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">ইলেক্ট্রিশিয়ান</h6>
+                </div>
+                <div>
+                  <div className="img_area" style={{ background: "#FBE3D2" }}>
+                    <img alt="Image"  style={{  width:"100px", height:"100px"}} src={cleaner} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">ক্লিনার</h6>
+                </div>
+                <div>
+                  <div className="img_area" style={{ background: "#E8E4F2" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={maid} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">গৃহকর্মী</h6>
+                </div>
+                <div>
+                  <div className="img_area" style={{ background: "#F8E6DA" }}>
+                    <img alt="Image" style={{  width:"100px", height:"100px"}} src={cleaner} />
+                  </div>
+                  <h6 className="text-center mt-4 mb-4">কল মিস্ত্রি</h6>
+                </div>
+              
+              </Slider>
+           
+            </Row>
+            <Row>
+            <p className="mb-1 custom_text_design mt-3">- কর্মচারী</p>
+              <h3 className="mb-5">কর্মচারী</h3>
+            {(employeeList?.data || []).map((data, key) => {
+                return (
+                  <>
+                    <Col md={3}>
+                      <Card className="card_wrapper mb-4">
+                        <div className="card_img">
+                          <Card.Img
+                            variant="top"
+                            alt="Image"
+                            src={data?.image}
+                            style={{height:"200px"}}
+                          />
+                        </div>
+
+                        <Card.Body>
+                          <div className="card_body_wrapper text-center">
+                            <h4 className="text-dark mb-3">
+                              {data?.profession}
+                            </h4>
+                            <h5 className="mb-3 text-warning">{data?.serviceName}</h5>
+
+                            <h6 className="mb-3">৳ {data?.price} per hour</h6>
+                            <p className="mb-3">৳ {data?.mobileNumber}</p>
+                            <Button className="btn btn-dark text-center">
+                              Call Now
+                            </Button>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  </>
+                );
+              })}
+            </Row>
+          </Container>
+        </div>
     <Modal
         size={"lg"}
         isOpen={modal2}
