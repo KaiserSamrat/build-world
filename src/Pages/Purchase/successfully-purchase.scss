@@ -1,0 +1,18 @@
+//========================================
+.successfully-purchase-area-inner-wrap {
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  h6 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+}

@@ -17,13 +17,13 @@ const Header = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const [testProfile, setTestProfile] = useState(true);
-  const { token} = useSelector((state) => ({
+  const { token, cart} = useSelector((state) => ({
    
     token: state.loginReducer.token,
-
+    cart: state.CardReducer.cart,
     // adding: state.coupon.adding,
   }));
-  console.log('token', token);
+  console.log('cart', cart);
   const handleLogout= ()=>{
     dispatch(logoutUser(history))
   }
@@ -48,46 +48,52 @@ const Header = () => {
                   className="bx bx-phone me-2 mt-1"
                   style={{ color: "#FF9A00", fontSize: "16px" }}
                 ></i>
-                <span className="me-5"> +880 1938392996</span>
+                <span className="me-5"> +৮৮০১৭৪৭৫৩১৮৮৮</span>
               </div>
               <div className="d-flex">
                 <i
                   className="bx bx-envelope me-2 mt-1"
                   style={{ color: "#FF9A00", fontSize: "16px" }}
                 ></i>
-                <span> tarek@gmail.com </span>
+                <span>  support@shondhan.com </span>
               </div>
             </Nav>
             <Nav>
               
               <Link className="nav-link" aria-current="page" to="/">
-                Home
+              হোম
               </Link>
               <Link className="nav-link" aria-current="page" to="/shop">
-                Shop
+              স্টোর
               </Link>
               <Link className="nav-link" aria-current="page" to="/product">
-                Product
+              পণ্য
               </Link>
               {/* <Link className="nav-link" aria-current="page" to="/requisition">
                 Requisition Form
               </Link> */}
 
               <Link className="nav-link" aria-current="page" to="/services">
-                Service
+              সেবা
               </Link>
             
 
-              <Link className="nav-link" aria-current="page" to="/vendor">
-                Vendor
-              </Link>
+             
               <Link className="nav-link" aria-current="page" to="/category">
-                Category
+              ক্যাটাগরি
               </Link>
-              <Link className="nav-link" aria-current="page" to="/track-order">
+              {/* <Link className="nav-link" aria-current="page" to="/track-order">
                 Track Your Order
+              </Link> */}
+              <Link className="nav-link" aria-current="page" to="/userOrderHistory">
+              অর্ডার হিস্ট্রি
               </Link>
-              <Nav.Link href="#action2">Blog</Nav.Link>
+             
+              <Link to="/cart" className="nav-link cart-navbar-button">
+                 
+              কার্ড
+                  <span>{cart?.length || 0}</span>
+                </Link>
              
             </Nav>
           </Navbar.Collapse>
@@ -98,7 +104,7 @@ const Header = () => {
         <Container>
           <div className="d-flex justify-content-between align-items-center custom-d-flex">
             {/* <img alt="logo" src={logo} style={{ width: "7%" }} /> */}
-            <h5>BuildX</h5>
+            <h5>সন্ধান </h5>
             <form>
               <div className="search-box-header-top-wrap search_radius_bottom_header">
                 <i

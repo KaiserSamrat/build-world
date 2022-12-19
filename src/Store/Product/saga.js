@@ -2,8 +2,8 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
 import { getData, postData } from '../../helpers/backend_helper';
 import { toaster } from '../../helpers/custom/Toaster';
 
-import { createCategoryFailed, createCategorySuccessful, createProductFailed, createProductSuccessful, createServiceSuccessful, getCategoryListFail, getCategoryListSuccess, getProductFail, getProductSuccess, getServiceFail, getServiceSuccess, getShopListFail, getShopListSuccess, registerUserFailed, registerUserSuccessful } from './actions';
-import { GET_CATEGORY, GET_EMPLOYEE, GET_PRODUCT, GET_SHOP, POST_CATEGORY, POST_EMPLOYEE, POST_PRODUCT, POST_SHOP, REGISTER_USER } from './actionTypes';
+import { createCategoryFailed, createCategorySuccessful, createProductFailed, createProductSuccessful, createServiceSuccessful, getCategoryListFail, getCategoryListSuccess, getProductFail, getProductSuccess, getServiceFail, getServiceSuccess, getShopListFail, getShopListSuccess, getShopProductFail, getShopProductSuccess, registerUserFailed, registerUserSuccessful } from './actions';
+import { GET_CATEGORY, GET_EMPLOYEE, GET_PRODUCT, GET_SHOP, GET_SHOP_PRODUCT, POST_CATEGORY, POST_EMPLOYEE, POST_PRODUCT, POST_SHOP, REGISTER_USER } from './actionTypes';
 
 function* onAddCategory({
   payload: { data, history, token },
@@ -73,6 +73,17 @@ function* onGetProduct({ payload: { token } }) {
     toaster("error", message);
   }
 }
+function* onShopGetProduct({ payload: { token, id } }) {
+  try {
+    const url = `product?pageNo=0&category=&shopid=${id}&limit=0`;
+    const response = yield call(getData, url, token);
+    yield put(getShopProductSuccess(response));
+  } catch (error) {
+    const message = error.response?.data?.message || "get category failed";
+    yield put(getShopProductFail(message));
+    toaster("error", message);
+  }
+}
 function* onAddProduct({
   payload: { data, history, token },
 }) {
@@ -128,6 +139,7 @@ function* ProductSaga() {
   yield takeEvery(GET_PRODUCT, onGetProduct);
   yield takeEvery(POST_EMPLOYEE, onAddEmployee);
   yield takeEvery(GET_EMPLOYEE, onGetService);
+  yield takeEvery(GET_SHOP_PRODUCT, onShopGetProduct);
 
 }
 

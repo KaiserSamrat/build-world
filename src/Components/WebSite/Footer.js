@@ -13,7 +13,7 @@ const Footer = () => {
         <Container>
           <div className="d-flex justify-content-between custom-d-flex">
             <div className="logo_wrapper">
-              <h5 className="text-white mb-5">BuildX</h5>
+              <h5 className="text-white mb-5">সন্ধান</h5>
               <p>@ 2022 - All rights reserved</p>
               <div className="d-flex">
                 <Link to="#action2">
@@ -33,35 +33,7 @@ const Footer = () => {
                 </Link>
               </div>
             </div>
-            <div>
-              <h6>Categories</h6>
-              <ul class="list-unstyled">
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">On Sale</Nav.Link>
-                </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Featured</Nav.Link>
-                </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Steal</Nav.Link>
-                </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Wood</Nav.Link>
-                </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Paint</Nav.Link>
-                </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Light</Nav.Link>
-                </li>
-              </ul>
-            </div>
+          
             <div>
               <h6>Legal</h6>
               <ul class="list-unstyled">
@@ -81,10 +53,7 @@ const Footer = () => {
                   {" "}
                   <Nav.Link href="#action2">Shipping</Nav.Link>
                 </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Data Protection</Nav.Link>
-                </li>
+            
               </ul>
             </div>
             <div>
@@ -110,10 +79,7 @@ const Footer = () => {
                   {" "}
                   <Nav.Link href="#action2">Vision</Nav.Link>
                 </li>
-                <li>
-                  {" "}
-                  <Nav.Link href="#action2">Culture</Nav.Link>
-                </li>
+             
               </ul>
             </div>
           </div>

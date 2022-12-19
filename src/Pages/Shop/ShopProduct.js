@@ -13,30 +13,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Header from "../../Components/WebSite/Header";
 import { addCart } from "../../Store/cart/actions";
-import { getProduct } from "../../Store/Product/actions";
+import { getShopProduct } from "../../Store/Product/actions";
 import { Modal } from "reactstrap";
 import Footer from "../../Components/WebSite/Footer";
-const ProductList = () => {
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+const ShopProduct = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const {id} = useParams()
   const [modal2, setModal2] = useState(false);
   const [modalCardTitle, setModalCardTitle] = useState("");
   const [modalCardImage, setModalCardImage] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
-  const { authToken, productList, productListLoading, role, cart } =
+  const { authToken, shopProduct, productListLoading, role, cart } =
     useSelector((state) => ({
       authToken: state.loginReducer.token,
       role: state.loginReducer.role,
-      productList: state.ProductReducer.productList,
+      shopProduct: state.ProductReducer.shopProduct,
       productListLoading: state.ProductReducer.productListLoading,
       cart: state.CardReducer.cart,
       // adding: state.coupon.adding,
     }));
   console.log("cart", cart);
   console.log("role", role);
-  console.log("categoryList", productList, productListLoading);
+  console.log("categoryList", shopProduct, productListLoading);
   useEffect(() => {
-    dispatch(getProduct(authToken));
+    if(id){
+        dispatch(getShopProduct(authToken, id));
+    }
+    
   }, []);
   const handleStore = (data) => {
     setModalCardTitle(data?.productName);
@@ -72,7 +77,7 @@ const ProductList = () => {
 
               <section class="container ">
                 <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
-                  {(productList?.data || []).map((data, key) => {
+                  {(shopProduct?.data || []).map((data, key) => {
                     return (
                       <>
                         <div class="col single-shoe">
@@ -158,4 +163,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ShopProduct;

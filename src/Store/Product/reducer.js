@@ -1,4 +1,4 @@
-import { GET_CATEGORY, GET_CATEGORY_FAILED, GET_CATEGORY_SUCCESSFUL, GET_EMPLOYEE, GET_EMPLOYEE_FAILED, GET_EMPLOYEE_SUCCESSFUL, GET_PRODUCT, GET_PRODUCT_FAILED, GET_PRODUCT_SUCCESSFUL, GET_SHOP, GET_SHOP_FAILED, GET_SHOP_SUCCESSFUL, POST_CATEGORY, POST_CATEGORY_FAILED, POST_CATEGORY_SUCCESSFUL, POST_EMPLOYEE, POST_EMPLOYEE_FAILED, POST_EMPLOYEE_SUCCESSFUL, POST_PRODUCT, POST_PRODUCT_FAILED, POST_PRODUCT_SUCCESSFUL, POST_SHOP, POST_SHOP_FAILED, POST_SHOP_SUCCESSFUL } from "./actionTypes";
+import { GET_CATEGORY, GET_CATEGORY_FAILED, GET_CATEGORY_SUCCESSFUL, GET_EMPLOYEE, GET_EMPLOYEE_FAILED, GET_EMPLOYEE_SUCCESSFUL, GET_PRODUCT, GET_PRODUCT_FAILED, GET_PRODUCT_SUCCESSFUL, GET_SHOP, GET_SHOP_FAILED, GET_SHOP_PRODUCT, GET_SHOP_PRODUCT_FAILED, GET_SHOP_PRODUCT_SUCCESSFUL, GET_SHOP_SUCCESSFUL, POST_CATEGORY, POST_CATEGORY_FAILED, POST_CATEGORY_SUCCESSFUL, POST_EMPLOYEE, POST_EMPLOYEE_FAILED, POST_EMPLOYEE_SUCCESSFUL, POST_PRODUCT, POST_PRODUCT_FAILED, POST_PRODUCT_SUCCESSFUL, POST_SHOP, POST_SHOP_FAILED, POST_SHOP_SUCCESSFUL } from "./actionTypes";
 
 
 const initialState = {
@@ -8,11 +8,13 @@ const initialState = {
   categoryList: [],
   shopList: [],
   productList: [],
+  shopProduct: [],
   shopListLoading: false,
   categoryListLoading: false,
   productListLoading: false,
   employeeList: [],
-  employeeLoading: false
+  employeeLoading: false, 
+  shopProductLoading: false
 };
 
 const ProductReducer = (state = initialState, action) => {
@@ -140,7 +142,7 @@ const ProductReducer = (state = initialState, action) => {
                   productListLoading: false,
                 };
                 break
-                break
+             
                 case GET_EMPLOYEE:
                   state =  {
                     ...state,
@@ -182,6 +184,26 @@ const ProductReducer = (state = initialState, action) => {
                       adding: false,
                     };
                     break;
+                    case GET_SHOP_PRODUCT:
+                      state =  {
+                        ...state,
+                        shopProductLoading: true,
+                      };
+                      break;
+                    case GET_SHOP_PRODUCT_SUCCESSFUL:
+                      state ={
+                        ...state,
+                        shopProductLoading: false,
+                        shopProduct: action.payload.data,
+                      };
+                      break;
+                    case GET_SHOP_PRODUCT_FAILED:
+                      state = {
+                        ...state,
+                        error: action.payload,
+                        shopProductLoading: false,
+                      };
+                      break
     default:
       state = { ...state };
       break;

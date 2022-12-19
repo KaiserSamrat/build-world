@@ -1,0 +1,65 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    color: darkcyan;
+}
+h2{
+    color: darkgoldenrod;
+}
+p{
+    color: rgb(18, 18, 17);
+}
+.navbar-brand img{
+    width: 350px;
+}
+.upper-part{
+    background-color: #fceae8;
+}
+
+.card-footer
+{
+    border: 0;
+}
+.card img{
+    height: 300px;
+}
+.card .second-image{
+    width: 100%;
+    border: 2px solid black;
+}
+.introduction{
+    text-align: justify;
+    padding: 5px;
+}
+.contact{
+    background-color: cornsilk;
+}
+.single-shoe{
+    border: 1.5em;
+}
+.contact{
+    height: 300px;
+}
+
+@media only screen and (max-width: 576px){
+    #display-1{
+        order: 2;
+    }
+    #display-2{
+        order: 1;
+    }
+    #shopping-image{
+        order: 1;
+    }
+    #shopping-details{
+        order: 2;
+    }
+    .shopping-photo img{
+        display: block;
+    }
+    
+
+}
+
+
